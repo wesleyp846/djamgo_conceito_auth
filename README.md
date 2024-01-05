@@ -49,14 +49,16 @@ Python 3.9+
 > > #### Criação do projeto django_auth
  
     django-admin startproject django_allaut .
+
+---
 &nbsp;
 
-1). Em ``django_auth/settings.py`` iremos configurar nosso projeto.
+1. Em ``django_auth/settings.py`` iremos configurar nosso projeto.
   * Após a constante *``DATABASES``* inserimos a constante *``AUTHENTICATION_BACKENDS``*
 
 **Primeira** linha permite a autenticação normal de usuarios
 
-**Segunda** linha permite a autenticação personalizada do allauth (por exemplo com e-mail)
+**Segunda** linha permite a autenticação personalizada do ``allauth`` (por exemplo com e-mail)
 
     AUTHENTICATION_BACKENDS = [
         'django.contrib.auth.backends.ModelBackend',
@@ -65,7 +67,7 @@ Python 3.9+
 
 &nbsp;
 
-* Em *INSTALLED_APPS* inserimos o *allauth* 
+* Em *``INSTALLED_APPS``* inserimos o **allauth** 
    
         'django.contrib.sites'
         'allauth',
@@ -73,63 +75,68 @@ Python 3.9+
 
 &nbsp;
  
-* Defina o *SITE_ID* logo após *INSTALLED_APPS*
+* Defina o *``SITE_ID``* logo após *``INSTALLED_APPS``*
 
-    SITE_ID = 1
+        SITE_ID = 1
 
 &nbsp;
  
-* Em *MIDDLEWARE* adicione
+* Em *``MIDDLEWARE``* adicione
 
         'allauth.account.middleware.AccountMiddleware',
 
+---
 &nbsp;
  
-1. Em URLS.py
-No arquivo urls.py vamos criar a *rota* para o allauth
+2. Em ``URLS.py``
+No arquivo **urls.py** vamos criar a **rota** para o **allauth**
 
         path('accounts/', include('allauth.urls')),
 
+---
 &nbsp;
  
-1. Etapa de banco de dados
+3. Etapa de banco de dados
 
         python manage.py makemigrations
         python manage.py migrate
 
 &nbsp;
  
-* Criaremos um super usuario para visulizar o projeto
+* Criaremos um ``super usuario`` para visulizar o projeto
 
         python manage.py createsuperuser
 
 &nbsp;
  
-* vamos rodar o sevidor
+* vamos rodar o ``sevidor``
+  
         python manage.py runserver
 
 &nbsp;
  
-* Em uma janela anonima de navegador vamos inserir o link
+* Em uma janela ``anonima`` de navegador vamos inserir o ``link``
     
         http://127.0.0.1:8000/accounts/login/
+---
+&nbsp;
+&nbsp;
 
-Se tudo deu certo, você deverá estar vendo esta tela 
+Se tudo deu **certo**, você deverá estar vendo esta tela 
 
 &nbsp;
  
 ![Alt text](figura1.png)
 
 
+--- 
 &nbsp;
  
-&nbsp;
- 
-4. Para trabalhar o HTML das paginas accounts, vamos criar suas copias na pasta de templates do nosso projeto. *NUNCA ALTERE OS ARQUIVOS DENTRO DA BIBLIOTECA*.
+4. Para trabalhar o ``HTML`` das paginas ``accounts``, vamos criar suas copias na pasta de templates do nosso projeto. *``*NUNCA ALTERE OS ARQUIVOS DENTRO DA BIBLIOTECA*``*.
 
 &nbsp;
  
-* Vamos em *settings.py* e em *TEMPLATES*, vamos aterar a costante *DIRS*
+* Vamos em ``*settings.py*`` e em *``TEMPLATES``*, vamos aterar a costante *``DIRS``*
 não esqueça de importar a biblioteca *OS*
 
         import os
@@ -138,12 +145,12 @@ não esqueça de importar a biblioteca *OS*
 
 &nbsp;
  
-* Crie na *raiz* do projeto uma pasta chamada *templates*
-para dentro dessa pasta copie de *env/lib/allauth/templates/* account e openid
+* Crie na *``raiz``* do projeto uma pasta chamada *``templates``*
+para dentro dessa pasta &nbsp; copie de *env/lib/allauth/templates/* ``account`` e ``openid``
 
 &nbsp;
  
-* Agora você pode alterar os arquivos *HTML* a seu gosto
+* Agora você pode alterar os arquivos *``HTML``* a seu gosto
 
 &nbsp;
 
@@ -166,4 +173,6 @@ Documentação e melhorias adicionadas por [Wesley Pereira](https://github.com/w
 
 
 Espero que a documentação os ajude a entender a aplicação! 
-Por favor, sinta-se a vontade para melhorá-la.
+Por favor, sinta-se a vontade para melhorá-la. &nbsp;
+
+Para mais [LinkedIn](hhttps://www.linkedin.com/in/wesleyp846).
