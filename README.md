@@ -1,6 +1,7 @@
 # Djamgo Conceitos em Auth
 
-Sistema ``web`` para cadastro de usuários, com Framework [Django](https://docs.djangoproject.com/en/5.0/) e integração com Banco de dados.&nbsp; Desta vez traremos uma visão geral sobre autenticações de forma **``segura``** e **``profissional``** para o desenvolvimento de aplicativos utilizando a biblioteca [Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
+Sistema ``web`` para cadastro de usuários, com Framework [Django](https://docs.djangoproject.com/en/5.0/) e integração com Banco de dados.&nbsp; 
+Desta vez traremos uma visão geral sobre autenticações de forma **``segura``** e **``profissional``** para o desenvolvimento de aplicativos utilizando a biblioteca [Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
 
 ---
 
@@ -113,7 +114,7 @@ Python 3.9+
 
 &nbsp;
  
-* vamos rodar o ``servidor``
+* Vamos rodar o ``servidor``
   
         python manage.py runserver
 
@@ -136,12 +137,15 @@ Se tudo deu **certo**, você deverá estar vendo esta tela
 --- 
 &nbsp;
  
-4. Para trabalhar o ``HTML`` das paginas ``accounts``, vamos criar suas copias na pasta de templates do nosso projeto. &nbsp; ``*NUNCA ALTERE OS ARQUIVOS DENTRO DA BIBLIOTECA*``.
+4. Para trabalhar o ``HTML`` das paginas ``accounts``, vamos criar suas copias na pasta de templates do nosso projeto. 
+&nbsp; 
+``*NUNCA ALTERE OS ARQUIVOS DENTRO DA BIBLIOTECA*``.
 
 &nbsp;
  
-* Vamos em ``settings.py`` e em *``TEMPLATES``* e iremos aterar a costante *``DIRS``* &nbsp;
-não esqueça de importar a biblioteca *OS*
+* Vamos em ``settings.py`` e em *``TEMPLATES``* e iremos alterar a costante *``DIRS``* 
+&nbsp;
+Não esqueça de importar a biblioteca *OS*
 
         import os
 
@@ -149,8 +153,11 @@ não esqueça de importar a biblioteca *OS*
 
 &nbsp;
  
-* Crie na *``raiz``* do projeto uma pasta chamada *``templates``*. &nbsp;
-Para dentro dessa pasta copie de &nbsp; *env/lib/allauth/templates/* ``account`` e ``openid``
+* Crie na *``raiz``* do projeto uma pasta chamada *``templates``*. 
+&nbsp;
+Para dentro dessa pasta copie de 
+&nbsp; 
+*env/lib/allauth/templates/* ``account`` e ``openid``
 
 &nbsp;
  
