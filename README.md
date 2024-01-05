@@ -1,6 +1,6 @@
 # Djamgo Conceitos em Auth
 
-Sistema ``web`` para cadastro de usuários, com Framework [Django](https://docs.djangoproject.com/en/5.0/) e integração com Banco de dados. Desta vez traremos uma visão geral sobre autenticações de forma **``segura``** e **``profissional``** para o desenvolvimento de aplicativos, com  a biblioteca [Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
+Sistema ``web`` para cadastro de usuários, com Framework [Django](https://docs.djangoproject.com/en/5.0/) e integração com Banco de dados.&nbsp; Desta vez traremos uma visão geral sobre autenticações de forma **``segura``** e **``profissional``** para o desenvolvimento de aplicativos utilizando a biblioteca [Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
 
 ---
 
@@ -37,7 +37,7 @@ Python 3.9+
 #### Feito via terminal. Instalação de um ambiente virtual
     python -m venv env
     .\env\Scripts\activate
-
+&nbsp;
 > > #### Instalando as bibliotécas
 
     python -m pip install --upgrade pip
@@ -52,13 +52,17 @@ Python 3.9+
 
 ---
 &nbsp;
+1. Em ``django_auth/settings.py`` iremos configurar nosso projeto.&nbsp;
+   
+&nbsp;
 
-1. Em ``django_auth/settings.py`` iremos configurar nosso projeto.
-  * Após a constante *``DATABASES``* inserimos a constante *``AUTHENTICATION_BACKENDS``*
+* Após a constante ``DATABASES`` inserimos a constante ``AUTHENTICATION_BACKENDS``
 
 **Primeira** linha permite a autenticação normal de usuarios
 
 **Segunda** linha permite a autenticação personalizada do ``allauth`` (por exemplo com e-mail)
+
+&nbsp;
 
     AUTHENTICATION_BACKENDS = [
         'django.contrib.auth.backends.ModelBackend',
@@ -67,7 +71,7 @@ Python 3.9+
 
 &nbsp;
 
-* Em *``INSTALLED_APPS``* inserimos o **allauth** 
+* Em *``INSTALLED_APPS``* Vamos inserir o **allauth** 
    
         'django.contrib.sites'
         'allauth',
@@ -88,8 +92,8 @@ Python 3.9+
 ---
 &nbsp;
  
-2. Em ``URLS.py``
-No arquivo **urls.py** vamos criar a **rota** para o **allauth**
+2. Em ``URLS.py``&nbsp;
+* No arquivo **urls.py** vamos criar a **rota** para o **allauth**
 
         path('accounts/', include('allauth.urls')),
 
@@ -103,19 +107,19 @@ No arquivo **urls.py** vamos criar a **rota** para o **allauth**
 
 &nbsp;
  
-* Criaremos um ``super usuario`` para visulizar o projeto
+* Criaremos um ``super usuário`` para visulizar o projeto
 
         python manage.py createsuperuser
 
 &nbsp;
  
-* vamos rodar o ``sevidor``
+* vamos rodar o ``servidor``
   
         python manage.py runserver
 
 &nbsp;
  
-* Em uma janela ``anonima`` de navegador vamos inserir o ``link``
+* Em uma janela ``anônima`` de navegador vamos inserir o ``link``
     
         http://127.0.0.1:8000/accounts/login/
 ---
@@ -132,11 +136,11 @@ Se tudo deu **certo**, você deverá estar vendo esta tela
 --- 
 &nbsp;
  
-4. Para trabalhar o ``HTML`` das paginas ``accounts``, vamos criar suas copias na pasta de templates do nosso projeto. *``*NUNCA ALTERE OS ARQUIVOS DENTRO DA BIBLIOTECA*``*.
+4. Para trabalhar o ``HTML`` das paginas ``accounts``, vamos criar suas copias na pasta de templates do nosso projeto. &nbsp; ``*NUNCA ALTERE OS ARQUIVOS DENTRO DA BIBLIOTECA*``.
 
 &nbsp;
  
-* Vamos em ``*settings.py*`` e em *``TEMPLATES``*, vamos aterar a costante *``DIRS``*
+* Vamos em ``settings.py`` e em *``TEMPLATES``* e iremos aterar a costante *``DIRS``* &nbsp;
 não esqueça de importar a biblioteca *OS*
 
         import os
@@ -145,8 +149,8 @@ não esqueça de importar a biblioteca *OS*
 
 &nbsp;
  
-* Crie na *``raiz``* do projeto uma pasta chamada *``templates``*
-para dentro dessa pasta &nbsp; copie de *env/lib/allauth/templates/* ``account`` e ``openid``
+* Crie na *``raiz``* do projeto uma pasta chamada *``templates``*. &nbsp;
+Para dentro dessa pasta copie de &nbsp; *env/lib/allauth/templates/* ``account`` e ``openid``
 
 &nbsp;
  
@@ -175,4 +179,4 @@ Documentação e melhorias adicionadas por [Wesley Pereira](https://github.com/w
 Espero que a documentação os ajude a entender a aplicação! 
 Por favor, sinta-se a vontade para melhorá-la. &nbsp;
 
-Para mais [LinkedIn](hhttps://www.linkedin.com/in/wesleyp846).
+Para mais [LinkedIn](https://www.linkedin.com/in/wesleyp846)
