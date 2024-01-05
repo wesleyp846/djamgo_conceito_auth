@@ -1,6 +1,6 @@
 # Djamgo Conceitos em Auth
 
-Sistema ``web`` para cadastro de usuários, com Framework [Django](https://docs.djangoproject.com/en/5.0/) e integração com Banco de dados. Desta vez traremos uma visão geral sobre autenticações de forma *segura* e *proficional* para o desenvolvimento de aplicativos, com  a biblioteca [allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
+Sistema ``web`` para cadastro de usuários, com Framework [Django](https://docs.djangoproject.com/en/5.0/) e integração com Banco de dados. Desta vez traremos uma visão geral sobre autenticações de forma **``segura``** e **``profissional``** para o desenvolvimento de aplicativos, com  a biblioteca [Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
 
 ---
 
@@ -18,22 +18,23 @@ Python 3.9+
  
 [Django](https://docs.djangoproject.com/en/5.0/)
 
+[Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html)
+
 [SQLite](https://www.sqlite.org/docs.html)
 
-[Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html)
 
 &nbsp;
 
 > ### Funcionalidades:
 
-* Cadastrar novos usuários com nome e senha.
-* Salvar os dados em um banco [SQLite](https://www.sqlite.org/docs.html)
+* Cadastrar novos usuários com ``nome`` e ``senha``.
+* Salvar os dados em um banco de dados [SQLite](https://www.sqlite.org/docs.html)
 
 &nbsp; 
 
 > ### Pré-code
 > > virtual environment
-#### Feito via terminal, instalação de um ambiente virtual
+#### Feito via terminal. Instalação de um ambiente virtual
     python -m venv env
     .\env\Scripts\activate
 
@@ -50,17 +51,19 @@ Python 3.9+
     django-admin startproject django_allaut .
 &nbsp;
 
-1. Em ``django_auth/settings.py`` iremos configurar nosso projeto.
-* Após a constante *DATABASES* inserimos a constante *AUTHENTICATION_BACKENDS*
+1). Em ``django_auth/settings.py`` iremos configurar nosso projeto.
+  * Após a constante *``DATABASES``* inserimos a constante *``AUTHENTICATION_BACKENDS``*
 
-Primeira linha permite a autenticação normal de usuarios
+**Primeira** linha permite a autenticação normal de usuarios
 
-Segunda linha permite a autenticação personalizada do allauth (por exemplo com e-mail)
+**Segunda** linha permite a autenticação personalizada do allauth (por exemplo com e-mail)
 
     AUTHENTICATION_BACKENDS = [
         'django.contrib.auth.backends.ModelBackend',
         'allauth.account.auth_backends.AuthenticationBackend',
     ]
+
+&nbsp;
 
 * Em *INSTALLED_APPS* inserimos o *allauth* 
    
@@ -68,45 +71,64 @@ Segunda linha permite a autenticação personalizada do allauth (por exemplo com
         'allauth',
         'allauth.account'
 
+&nbsp;
+ 
 * Defina o *SITE_ID* logo após *INSTALLED_APPS*
 
     SITE_ID = 1
 
-
+&nbsp;
+ 
 * Em *MIDDLEWARE* adicione
 
         'allauth.account.middleware.AccountMiddleware',
 
-
-2. Em URLS.py
+&nbsp;
+ 
+1. Em URLS.py
 No arquivo urls.py vamos criar a *rota* para o allauth
 
         path('accounts/', include('allauth.urls')),
 
-3. Etapa de banco de dados
+&nbsp;
+ 
+1. Etapa de banco de dados
 
         python manage.py makemigrations
         python manage.py migrate
 
+&nbsp;
+ 
 * Criaremos um super usuario para visulizar o projeto
 
         python manage.py createsuperuser
 
+&nbsp;
+ 
 * vamos rodar o sevidor
         python manage.py runserver
 
-
+&nbsp;
+ 
 * Em uma janela anonima de navegador vamos inserir o link
     
         http://127.0.0.1:8000/accounts/login/
 
 Se tudo deu certo, você deverá estar vendo esta tela 
 
+&nbsp;
+ 
 ![Alt text](figura1.png)
 
 
+&nbsp;
+ 
+&nbsp;
+ 
 4. Para trabalhar o HTML das paginas accounts, vamos criar suas copias na pasta de templates do nosso projeto. *NUNCA ALTERE OS ARQUIVOS DENTRO DA BIBLIOTECA*.
 
+&nbsp;
+ 
 * Vamos em *settings.py* e em *TEMPLATES*, vamos aterar a costante *DIRS*
 não esqueça de importar a biblioteca *OS*
 
@@ -114,9 +136,13 @@ não esqueça de importar a biblioteca *OS*
 
         'DIRS' = [os.path.join(BASE_DIR, 'templates')]
 
+&nbsp;
+ 
 * Crie na *raiz* do projeto uma pasta chamada *templates*
 para dentro dessa pasta copie de *env/lib/allauth/templates/* account e openid
 
+&nbsp;
+ 
 * Agora você pode alterar os arquivos *HTML* a seu gosto
 
 &nbsp;
