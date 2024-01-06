@@ -7,6 +7,7 @@ Desta vez traremos uma visão geral sobre autenticações de forma ``segura`` e 
 ---
 
 ## Versão v1.0
+Na versão v1.5, trabalhamos com o frontend da aplicação 
 
 &nbsp;
 
