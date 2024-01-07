@@ -1,8 +1,7 @@
 # Djamgo Conceitos em Auth
 
 Sistema ``web`` para cadastro de usuários, com Framework [Django](https://docs.djangoproject.com/en/5.0/) e integração com Banco de dados.&nbsp; 
-Desta vez traremos uma visão geral sobre autenticações de forma ``segura`` e ``profissional`` &nbsp; 
- para o desenvolvimento de aplicativos utilizando a biblioteca [Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
+Desta vez traremos uma visão geral sobre autenticações de forma **``segura``** e **``profissional``** para o desenvolvimento de aplicativos utilizando a biblioteca [Allauth](https://docs.allauth.org/en/latest/installation/quickstart.html).
 
 ---
 
@@ -155,15 +154,11 @@ Não esqueça de importar a biblioteca *OS*
 
 &nbsp;
  
-* Crie na *``raiz``* do projeto uma pasta chamada ``templates``. 
-  
+* Crie na *``raiz``* do projeto uma pasta chamada *``templates``*. 
 &nbsp;
-
 Para dentro dessa pasta copie de 
-
 &nbsp; 
-
-``env/lib/allauth/templates/`` as pastas ``account`` e ``openid``
+*env/lib/allauth/templates/* ``account`` e ``openid``
 
 &nbsp;
  
