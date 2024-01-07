@@ -5,33 +5,66 @@
     {% trans "Sign In" %}
 {% endblock head_title %}
 {% block content %}
-    <H1>Teste de casa</H1>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Bootstrap JS e Popper.js (certifique-se de carregar o Popper.js antes do Bootstrap JS) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div>
+    <nav class="navbar navbar-dark bg-secondary">
+        <div class="container-fluid">
+            {% if user.is_authenticated %}
+                <a class="navbar-brand" href="#">autenticado</a>
+                <a class="navbar-brand" href="#">Engeman</a>
+                <a class="btn btn-danger" href="{% url 'account_logout' %}">Logoff</a>
+            {% else %}
+            <a class="navbar-brand" href="#">Não autenticado</a>
+                <a class="navbar-brand" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+                <a class="btn btn-success" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+            {% endif %}
+        </div>
+    </nav>
+</div>
+<div class="container-fluid text-center p-3 mb-2">
+
     {% element h1 %}
         {% trans "Sign In" %}
     {% endelement %}
+    <br>
     <p>
-        {% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+        {% blocktrans %}Se você não possui um cadastro, </p>
+        <p>
+            por favor <a class="btn btn-secondary" href="{{ signup_url }}">cadastre-se</a> primeiro.
+    {% endblocktrans %}
     </p>
-    {% url 'account_login' as login_url %}
-    {% element form form=form method="post" action=login_url tags="entrance,login" %}
-        {% slot body %}
-            {% csrf_token %}
-            {% element fields form=form unlabeled=True %}
+    <div class="container p-5">
+        {% url 'account_login' as login_url %}
+        <div>
+            {% element form form=form method="post" action=login_url tags="entrance,login" %}
+                {% slot body %}
+                    {% csrf_token %}
+                    <div class="border">
+                        <h1>bunda seca02</h1>
+                        {% element fields form=form unlabeled=True %}
+                    </div>
+                    {% endelement %}
+                    <h1>bunda seca16</h1>
+                    {% if redirect_field_value %}
+                        <input type="hidden"
+                            name="{{ redirect_field_name }}"
+                            value="{{ redirect_field_value }}" />
+                    {% endif %}
+                {% endslot %}
+                {% slot actions %}
+                    {% element button type="submit" tags="prominent,login" %}
+                        ppp{% trans "Sign In" %}
+                    {% endelement %}
+                {% endslot %}
             {% endelement %}
-            {% if redirect_field_value %}
-                <input type="hidden"
-                       name="{{ redirect_field_name }}"
-                       value="{{ redirect_field_value }}" />
-            {% endif %}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" tags="prominent,login" %}
-                {% trans "Sign In" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock content %}
