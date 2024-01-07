@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount', # add this if you want to enable social authentication
 ]
 
 SITE_ID = 1
